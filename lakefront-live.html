@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakefront Live 2026 | Free Summer Entertainment at Downtown Columbia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-primary: #0066B3;
+            --red-accent: #DC2F3E;
+            --yellow-accent: #F9B233;
+            --orange-accent: #E67E22;
+            --green-accent: #27AE60;
+            --teal-accent: #16A085;
+            --bg-light: #F8FAFB;
+            --bg-cream: #FFF9F0;
+            --text-dark: #1A1A1A;
+            --text-gray: #555555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--blue-primary) 0%, #0052A3 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(249, 178, 51, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(220, 47, 62, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(22, 160, 133, 0.15) 0%, transparent 50%);
+            animation: floatShapes 20s ease-in-out infinite;
+        }
+
+        @keyframes floatShapes {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -20px) scale(1.05); }
+        }
+
+        .hero-decorative {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .circle-deco {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            top: 10%;
+            right: 15%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .square-deco {
+            width: 100px;
+            height: 100px;
+            background: var(--yellow-accent);
+            bottom: 15%;
+            left: 10%;
+            transform: rotate(45deg);
+            animation: float 8s ease-in-out infinite 1s;
+        }
+
+        .triangle-deco {
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 104px solid var(--red-accent);
+            top: 30%;
+            left: 8%;
+            animation: float 7s ease-in-out infinite 0.5s;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo-mark {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--blue-primary);
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: popIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(3rem, 10vw, 7rem);
+            color: white;
+            line-height: 0.95;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+        }
+
+        .hero h1 .lakefront {
+            display: block;
+        }
+
+        .hero h1 .live {
+            display: block;
+            color: var(--yellow-accent);
+            text-shadow: 3px 3px 0 var(--red-accent);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-tagline {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: white;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s backwards;
+        }
+
+        .hero-tagline span {
+            display: inline-block;
+            padding: 0.2em 0.5em;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            margin: 0.3rem 0.3rem 0.3rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-details {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+            font-weight: 500;
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s backwards;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--yellow-accent);
+            color: var(--text-dark);
+            box-shadow: 0 10px 30px rgba(249, 178, 51, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(249, 178, 51, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--blue-primary);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Quick Links Section */
+        .quick-links {
+            position: relative;
+            padding: 4rem 2rem;
+            background: var(--bg-cream);
+            border-bottom: 4px dashed var(--blue-primary);
+        }
+
+        .quick-links-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .quick-link-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quick-link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--red-accent), var(--yellow-accent), var(--green-accent), var(--teal-accent));
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .quick-link-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--blue-primary);
+            box-shadow: 0 20px 50px rgba(0, 102, 179, 0.2);
+        }
+
+        .quick-link-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        .quick-link-card:hover .quick-link-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .quick-link-card:nth-child(1) .quick-link-icon { background: rgba(220, 47, 62, 0.15); }
+        .quick-link-card:nth-child(2) .quick-link-icon { background: rgba(249, 178, 51, 0.15); }
+        .quick-link-card:nth-child(3) .quick-link-icon { background: rgba(22, 160, 133, 0.15); }
+        .quick-link-card:nth-child(4) .quick-link-icon { background: rgba(230, 126, 34, 0.15); }
+
+        .quick-link-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .quick-link-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* What's On Section */
+        .whats-on {
+            padding: 6rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .whats-on::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: linear-gradient(180deg, var(--bg-cream) 0%, transparent 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--blue-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .series-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .series-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 25px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 3px solid transparent;
+        }
+
+        .series-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--blue-primary);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .series-card-header {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .series-card:nth-child(1) .series-card-header { background: linear-gradient(135deg, var(--red-accent), #C62828); }
+        .series-card:nth-child(2) .series-card-header { background: linear-gradient(135deg, var(--yellow-accent), #F57C00); }
+        .series-card:nth-child(3) .series-card-header { background: linear-gradient(135deg, var(--teal-accent), #00897B); }
+        .series-card:nth-child(4) .series-card-header { background: linear-gradient(135deg, var(--orange-accent), #D84315); }
+        .series-card:nth-child(5) .series-card-header { background: linear-gradient(135deg, var(--green-accent), #2E7D32); }
+        .series-card:nth-child(6) .series-card-header { background: linear-gradient(135deg, #9C27B0, #6A1B9A); }
+
+        .series-card-header::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .series-icon {
+            font-size: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .series-card-body {
+            padding: 2rem;
+        }
+
+        .series-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .series-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .series-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--bg-cream);
+            border-radius: 20px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--blue-primary);
+        }
+
+        /* Info Banner */
+        .info-banner {
+            background: linear-gradient(135deg, var(--blue-primary) 0%, #0052A3 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.05) 20px,
+                rgba(255, 255, 255, 0.05) 40px
+            );
+            animation: stripes 20s linear infinite;
+        }
+
+        @keyframes stripes {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        .info-banner-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-banner h2 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-banner p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-item-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-item h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        footer a {
+            color: var(--yellow-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--yellow-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 90vh;
+                padding: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .series-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .circle-deco, .square-deco, .triangle-deco {
+                display: none;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            width: 6px;
+            height: 10px;
+            background: white;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { top: 8px; opacity: 1; }
+            50% { top: 24px; opacity: 0.5; }
+            100% { top: 8px; opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-decorative circle-deco"></div>
+        <div class="hero-decorative square-deco"></div>
+        <div class="hero-decorative triangle-deco"></div>
+        
+        <div class="hero-content">
+            <div class="logo-mark">CA</div>
+            <h1>
+                <span class="lakefront">Lakefront</span>
+                <span class="live">Live</span>
+            </h1>
+            <div class="hero-tagline">
+                <span>🎵 Music</span>
+                <span>🍿 Movies</span>
+                <span>💃 Dancing</span>
+                <span>👨‍👩‍👧‍👦 Family Fun</span>
+            </div>
+            <p class="hero-details">
+                FREE summer entertainment at Downtown Columbia Lakefront<br>
+                <strong>May – August 2026</strong>
+            </p>
+            <div class="cta-buttons">
+                <a href="#schedule" class="btn btn-primary">View Full Schedule</a>
+                <a href="#plan" class="btn btn-secondary">Plan Your Visit</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="quick-links-container">
+            <a href="#schedule" class="quick-link-card">
+                <div class="quick-link-icon">📅</div>
+                <h3>Full Schedule</h3>
+                <p>Browse 60+ FREE events including concerts, movies, and special celebrations</p>
+            </a>
+            <a href="#tonight" class="quick-link-card">
+                <div class="quick-link-icon">✨</div>
+                <h3>What's On Tonight</h3>
+                <p>Check out tonight's entertainment and plan your lakefront evening</p>
+            </a>
+            <a href="#plan" class="quick-link-card">
+                <div class="quick-link-icon">🗺️</div>
+                <h3>Plan Your Visit</h3>
+                <p>Parking, food options, accessibility info, and everything you need to know</p>
+            </a>
+            <a href="#updates" class="quick-link-card">
+                <div class="quick-link-icon">🔔</div>
+                <h3>Weather & Updates</h3>
+                <p>Get real-time alerts about cancellations, schedule changes, and more</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- What's On Section -->
+    <section class="whats-on">
+        <div class="section-header">
+            <h2>Summer 2026 Series</h2>
+            <p>From legendary headliners to family movie nights under the stars, there's something for everyone at the lakefront this summer</p>
+        </div>
+
+        <div class="series-grid">
+            <div class="series-card">
+                <div class="series-card-header">
+                    <div class="series-icon">🎸</div>
+                </div>
+                <div class="series-card-body">
+                    <h3>Concerts</h3>
+                    <p>Regional, national, and internationally recognized performers light up the lakefront stage</p>
+                    <span class="series-tag">Saturday Nights</span>
+                </div>
+            </div>
+
+            <div class="series-card">
+                <div class="series-card-header">
+                    <div class="series-icon">🎬</div>
+                </div>
+                <div class="series-card-body">
+                    <h3>Movie Nights</h3>
+                    <p>30+ films on the big screen with Tom "Mr. B" Brzezinski and the Columbia Film Society</p>
+                    <span class="series-tag">Multiple Evenings</span>
+                </div>
+            </div>
+
+            <div class="series-card">
+                <div class="series-card-header">
+                    <div class="series-icon">💃</div>
+                </div>
+                <div class="series-card-body">
+                    <h3>Dancin' Under the People Tree</h3>
+                    <p>Live music and dance instruction before the movie starts—no experience needed!</p>
+                    <span class="series-tag">Select Evenings</span>
+                </div>
+            </div>
+
+            <div class="series-card">
+                <div class="series-card-header">
+                    <div class="series-icon">🎉</div>
+                </div>
+                <div class="series-card-body">
+                    <h3>Community Celebrations</h3>
+                    <p>Block parties, themed nights, and special cultural celebrations throughout the summer</p>
+                    <span class="series-tag">Throughout Season</span>
+                </div>
+            </div>
+
+            <div class="series-card">
+                <div class="series-card-header">
+                    <div class="series-icon">🎈</div>
+                </div>
+                <div class="series-card-body">
+                    <h3>Family Fun Mornings</h3>
+                    <p>Start your Saturday with bubbles, balloons, magicians, games, and kid-approved fun</p>
+                    <span class="series-tag">Saturday Mornings</span>
+                </div>
+            </div>
+
+            <div class="series-card">
+                <div class="series-card-header">
+                    <div class="series-icon">🎵</div>
+                </div>
+                <div class="series-card-body">
+                    <h3>Weekend Wind Down</h3>
+                    <p>Acoustic sets for Sunday brunch-time ambience at the lakefront</p>
+                    <span class="series-tag">Sunday Mornings</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <section class="info-banner">
+        <div class="info-banner-content">
+            <h2>Your Summer Starts Here</h2>
+            <p>Lake Kittamaqundi means "meeting place"—and for summer 2026, it's THE place to be in Columbia</p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-item-icon">🎟️</div>
+                    <h3>100% FREE</h3>
+                    <p>All events, all summer. No tickets, no registration, just show up!</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">🌅</div>
+                    <h3>Scenic Lakefront</h3>
+                    <p>Beautiful waterfront views at Downtown Columbia's gathering place</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">🍔</div>
+                    <h3>Food & Drinks</h3>
+                    <p>Local food trucks, beverages, and dining options nearby</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-icon">♿</div>
+                    <h3>Everyone Welcome</h3>
+                    <p>Accessible, inclusive entertainment for all ages and abilities</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="#subscribe" class="btn btn-primary">Get Schedule Updates</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">LAKEFRONT LIVE</div>
+        <p>Presented by <a href="https://columbiaassociation.org" target="_blank">Columbia Association</a></p>
+        <p>Downtown Columbia Lakefront • 10221 Wincopin Circle, Columbia, MD 21044</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">
+            Making Columbia an even better place to live, work and play.
+        </p>
+    </footer>
+</body>
+</html>
