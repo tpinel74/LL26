@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakefront Live 2026 - Visual Sitemap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 3rem 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: #0066B3;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .sitemap {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .level-0 {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page {
+            display: inline-block;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #0066B3;
+        }
+
+        .page:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 102, 179, 0.2);
+        }
+
+        .page-home {
+            background: linear-gradient(135deg, #0066B3 0%, #0052A3 100%);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .page-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .page-home .page-title {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .page-url {
+            font-size: 0.85rem;
+            color: #666;
+            font-family: 'Courier New', monospace;
+        }
+
+        .page-home .page-url {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .page-count {
+            display: inline-block;
+            background: #F9B233;
+            color: #1a1a1a;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .level-1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #f0f0f0;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .section-pages {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .subpage {
+            background: #f8f9fa;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            border-left: 3px solid #0066B3;
+            transition: all 0.2s ease;
+        }
+
+        .subpage:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+
+        .subpage-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .subpage-url {
+            font-size: 0.8rem;
+            color: #666;
+            font-family: 'Courier New', monospace;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .badge-tier1 {
+            background: #DC2F3E;
+            color: white;
+        }
+
+        .badge-tier2 {
+            background: #F9B233;
+            color: #1a1a1a;
+        }
+
+        .badge-tier3 {
+            background: #27AE60;
+            color: white;
+        }
+
+        .badge-partner {
+            background: #9C27B0;
+            color: white;
+        }
+
+        .badge-county {
+            background: #E67E22;
+            color: white;
+        }
+
+        .legend {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 3rem auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .legend-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #0066B3 0%, #0052A3 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 3rem auto;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #F9B233;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 0.5rem;
+        }
+
+        .special-note {
+            background: #fff9f0;
+            border-left: 4px solid #F9B233;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .level-1 {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🗺️ Lakefront Live 2026 Sitemap</h1>
+        <p>Complete Information Architecture & Navigation Structure</p>
+    </div>
+
+    <div class="sitemap">
+        <!-- Level 0: Home -->
+        <div class="level-0">
+            <div class="page page-home">
+                <div class="page-title">🏠 HOME / OVERVIEW</div>
+                <div class="page-url">/lakefront-live</div>
+                <span class="badge badge-tier1">TIER 1 - Launch Day</span>
+            </div>
+        </div>
+
+        <!-- Level 1: Main Sections -->
+        <div class="level-1">
+            <!-- Schedule Section -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">📅</div>
+                    <div class="section-title">Schedule & Events</div>
+                </div>
+                <div class="section-pages">
+                    <div class="subpage">
+                        <div class="subpage-title">Schedule Hub</div>
+                        <div class="subpage-url">/schedule</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Event Detail Pages</div>
+                        <div class="subpage-url">/events/[event-name]</div>
+                        <span class="page-count">60-75 pages</span>
+                        <div class="special-note">
+                            Core shareable unit for performer amplification. First 10-15 for Tier 1, rolling publication 2-4 weeks before event.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Series Section -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🎭</div>
+                    <div class="section-title">Series Pages</div>
+                </div>
+                <div class="section-pages">
+                    <div class="subpage">
+                        <div class="subpage-title">All Series Overview</div>
+                        <div class="subpage-url">/series</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">🎸 Concerts</div>
+                        <div class="subpage-url">/series/concerts</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">🎬 Movie Nights</div>
+                        <div class="subpage-url">/series/movies</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">💃 Dancin' Under the People Tree</div>
+                        <div class="subpage-url">/series/dancing</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">🎉 Community Celebrations</div>
+                        <div class="subpage-url">/series/community-celebrations</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">🎈 Family Fun Mornings</div>
+                        <div class="subpage-url">/series/family-fun</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">🎵 Weekend Wind Down</div>
+                        <div class="subpage-url">/series/weekend-wind-down</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tentpole Events -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">⭐</div>
+                    <div class="section-title">Tentpole Events</div>
+                </div>
+                <div class="section-pages">
+                    <div class="subpage">
+                        <div class="subpage-title">Memorial Day Weekend Kickoff</div>
+                        <div class="subpage-url">/events/memorial-day-kickoff</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">June Jamboree</div>
+                        <div class="subpage-url">/events/june-jamboree</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">LakeFest (Partner Event)</div>
+                        <div class="subpage-url">/events/lakefest</div>
+                        <span class="badge badge-partner">Partner</span>
+                        <span class="badge badge-tier3">TIER 3</span>
+                        <div class="special-note">
+                            Coordinated with separate LakeFest organization. Clear messaging about partnership, links to official LakeFest site.
+                        </div>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">4th of July Celebrations</div>
+                        <div class="subpage-url">/events/fourth-of-july</div>
+                        <span class="badge badge-county">Howard County</span>
+                        <span class="badge badge-tier3">TIER 3</span>
+                        <div class="special-note">
+                            Multi-agency coordination with Howard County. Enhanced parking, safety, crowd management info. Separate sub-sections for daytime/concert/fireworks.
+                        </div>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Summer Solstice Celebration</div>
+                        <div class="subpage-url">/events/summer-solstice</div>
+                        <span class="badge badge-tier3">TIER 3</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Columbia Birthday Celebration</div>
+                        <div class="subpage-url">/events/columbia-birthday</div>
+                        <span class="badge badge-tier3">TIER 3</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Back-to-School Bash</div>
+                        <div class="subpage-url">/events/back-to-school-bash</div>
+                        <span class="badge badge-tier3">TIER 3</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Labor Day Grand Finale</div>
+                        <div class="subpage-url">/events/labor-day-finale</div>
+                        <span class="badge badge-tier3">TIER 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plan Your Visit -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🗺️</div>
+                    <div class="section-title">Plan Your Visit</div>
+                </div>
+                <div class="section-pages">
+                    <div class="subpage">
+                        <div class="subpage-title">Plan Your Visit Hub</div>
+                        <div class="subpage-url">/plan-your-visit</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Getting There (Parking, Transit)</div>
+                        <div class="subpage-url">/plan-your-visit/getting-there</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Food & Beverages</div>
+                        <div class="subpage-url">/plan-your-visit/food</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Accessibility</div>
+                        <div class="subpage-url">/plan-your-visit/accessibility</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">What to Bring</div>
+                        <div class="subpage-url">/plan-your-visit/what-to-bring</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Seating & Setup</div>
+                        <div class="subpage-url">/plan-your-visit/seating</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Safety & Policies</div>
+                        <div class="subpage-url">/plan-your-visit/safety</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">FAQ</div>
+                        <div class="subpage-url">/plan-your-visit/faq</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Updates -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🔔</div>
+                    <div class="section-title">Weather & Updates</div>
+                </div>
+                <div class="section-pages">
+                    <div class="subpage">
+                        <div class="subpage-title">Updates & Alerts</div>
+                        <div class="subpage-url">/updates</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                        <div class="special-note">
+                            Real-time weather status, cancellations, schedule changes. Email/SMS alert signup.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">ℹ️</div>
+                    <div class="section-title">About</div>
+                </div>
+                <div class="section-pages">
+                    <div class="subpage">
+                        <div class="subpage-title">About Lakefront Live</div>
+                        <div class="subpage-url">/about</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">About the Venue</div>
+                        <div class="subpage-url">/about/venue</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">About Columbia Association</div>
+                        <div class="subpage-url">/about/columbia-association</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Partnerships</div>
+                        <div class="subpage-url">/about/partnerships</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Past Seasons Archive</div>
+                        <div class="subpage-url">/about/past-seasons</div>
+                        <span class="badge badge-tier3">TIER 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Get Involved -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🤝</div>
+                    <div class="section-title">Get Involved</div>
+                </div>
+                <div class="section-pages">
+                    <div class="subpage">
+                        <div class="subpage-title">Volunteer Opportunities</div>
+                        <div class="subpage-url">/get-involved/volunteer</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Perform at Lakefront Live</div>
+                        <div class="subpage-url">/get-involved/perform</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Sponsorship Opportunities</div>
+                        <div class="subpage-url">/get-involved/sponsor</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Vendors & Food Trucks</div>
+                        <div class="subpage-url">/get-involved/vendors</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media & Resources -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">📸</div>
+                    <div class="section-title">Media & Resources</div>
+                </div>
+                <div class="section-pages">
+                    <div class="subpage">
+                        <div class="subpage-title">Press Kit</div>
+                        <div class="subpage-url">/media/press-kit</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Performer Toolkit</div>
+                        <div class="subpage-url">/media/performer-toolkit</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                        <div class="special-note">
+                            Shareable graphics, promotional templates, social media assets for performer amplification.
+                        </div>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Photo Gallery</div>
+                        <div class="subpage-url">/media/photos</div>
+                        <span class="badge badge-tier3">TIER 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact & Utility -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">📧</div>
+                    <div class="section-title">Contact & Legal</div>
+                </div>
+                <div class="section-pages">
+                    <div class="subpage">
+                        <div class="subpage-title">Contact Us</div>
+                        <div class="subpage-url">/contact</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Privacy Policy</div>
+                        <div class="subpage-url">/privacy</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Terms of Use</div>
+                        <div class="subpage-url">/terms</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">Accessibility Statement</div>
+                        <div class="subpage-url">/accessibility-statement</div>
+                        <span class="badge badge-tier1">TIER 1</span>
+                    </div>
+                    <div class="subpage">
+                        <div class="subpage-title">HTML Sitemap</div>
+                        <div class="subpage-url">/sitemap</div>
+                        <span class="badge badge-tier2">TIER 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <h2 style="margin-bottom: 1rem; font-size: 2rem;">📊 Site Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">100-120</div>
+                    <div class="stat-label">Total Pages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">60-75</div>
+                    <div class="stat-label">Event Detail Pages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Tentpole Events</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Series Pages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">11</div>
+                    <div class="stat-label">Main Sections</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Partner Events</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-title">🗝️ Legend & Launch Priority</div>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <span class="badge badge-tier1">TIER 1</span>
+                    <span>Must-have for May 1 launch</span>
+                </div>
+                <div class="legend-item">
+                    <span class="badge badge-tier2">TIER 2</span>
+                    <span>Launch within 2 weeks (May 1-15)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="badge badge-tier3">TIER 3</span>
+                    <span>Rolling publication through season</span>
+                </div>
+                <div class="legend-item">
+                    <span class="badge badge-partner">Partner</span>
+                    <span>LakeFest partner organization</span>
+                </div>
+                <div class="legend-item">
+                    <span class="badge badge-county">Howard County</span>
+                    <span>Multi-agency coordination required</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #f0f0f0;">
+                <h3 style="margin-bottom: 1rem; color: #0066B3;">Key Priorities for Event Pages:</h3>
+                <ul style="line-height: 2; color: #666;">
+                    <li><strong>Event Detail Pages</strong> are the core shareable unit for performer amplification</li>
+                    <li>First 10-15 event pages must be live by May 1 (Memorial Day weekend + early June)</li>
+                    <li>Remaining event pages published 2-4 weeks before each event date</li>
+                    <li>Each event page must be optimized for social sharing with proper meta tags</li>
+                    <li><strong>LakeFest:</strong> Clear messaging that it's a partner event with link to official site</li>
+                    <li><strong>4th of July:</strong> Enhanced content for multi-agency coordination, crowd management, County partnership details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
